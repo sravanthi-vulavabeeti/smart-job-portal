@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Jobs</title>
+</head>
+<body>
+
+<h1>My Saved Jobs</h1>
+
+<table border="1">
+    <tr>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Action</th>
+    </tr>
+
+    {% for job in jobs %}
+    <tr>
+        <td>{{ job[1] }}</td>
+        <td>{{ job[2] }}</td>
+
+        <td>
+           <form action="/delete_saved_job" method="POST">
+              <input type="hidden" name="job_title" value="{{ job[1] }}">
+              <input type="hidden" name="company" value="{{ job[2] }}">
+              <button type="submit">🗑 Delete</button>
+           </form>
+        </td>        
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>

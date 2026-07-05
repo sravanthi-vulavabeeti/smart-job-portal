@@ -1,0 +1,40 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+}
+
+.navbar{
+    background:#0d6efd;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    width:70%;
+    margin:40px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px lightgray;
+}
+
+.card a{
+    display:block;
+    text-decoration:none;
+    color:#333;
+    font-size:20px;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    background:#f8f9fa;
+}
+
+.card a:hover{
+    background:#0d6efd;
+    color:white;
+}

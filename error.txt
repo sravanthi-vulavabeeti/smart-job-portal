@@ -1,0 +1,14 @@
+connected to MYSQL successfully!
+Traceback (most recent call last):
+  File "/home/user/smart-job-portal/app.py", line 329, in <module>
+    render_template("admin_dashboard.html"
+  File "/home/user/smart-job-portal/venv/lib/python3.12/site-packages/flask/templating.py", line 149, in render_template
+    app = current_app._get_current_object()  # type: ignore[attr-defined]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/smart-job-portal/venv/lib/python3.12/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">Smart Job Portal</a>
+
+    <div class="ms-auto">
+      <a href="/search_jobs" class="btn btn-outline-light me-2">Jobs</a>
+      <a href="/saved_jobs" class="btn btn-outline-light me-2">Saved</a>
+      <a href="/applied_jobs" class="btn btn-outline-light me-2">Applied</a>
+      <a href="/profile" class="btn btn-outline-light">Profile</a>
+    </div>
+  </div>
+</nav>
+
+    <div class="navbar">
+        <h2>Smart Job Portal</h2>
+    </div>
+
+    <div class="container">
+
+        <h1>Welcome, {{ name }} 👋</h1>
+
+<div class="card shadow-lg p-4 rounded-4">
+    <h2 class="text-primary mb-4">📊 Dashboard</h2>
+
+    <a href="/profile" class="btn btn-outline-primary d-block mb-2">👤 My Profile</a>
+    <a href="/search_jobs" class="btn btn-outline-success d-block mb-2">💼 Search Jobs</a>
+    <a href="/saved_jobs" class="btn btn-outline-danger d-block mb-2">❤️ Saved Jobs</a>
+    <a href="/applied_jobs" class="btn btn-outline-warning d-block mb-2">📄 Applied Jobs</a>
+    <a href="/upload_resume" class="btn btn-outline-info d-block mb-2">📤 Upload Resume</a>
+    <a href="/logout" class="btn btn-outline-dark d-block">🚪 Logout</a>
+</div>
+
+<div class="row">
+        
+<div class="row">
+
+<div class="col-md-4">
+<div class="card text-bg-primary mb-3">
+<div class="card-body">
+<h5>Total Jobs</h5>
+<h2>{{ total }}</h2>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card text-bg-success mb-3">
+<div class="card-body">
+<h5>Applied Jobs</h5>
+<h2>{{ applied }}</h2>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card text-bg-warning mb-3">
+<div class="card-body">
+<h5>Saved Jobs</h5>
+<h2>{{ saved }}</h2>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+        <div class="card shadow-lg p-4 rounded-4">
+            <h2 class="text-primary mb-4">📊 Dashboard</h2>
+
+            <a href="/profile" class="btn btn-outline-primary d-block mb-2">👤 My Profile</a>
+            <a href="/search_jobs">💼 Search Jobs</a>
+            <a href="/saved_jobs">❤️ Saved Jobs</a>
+            <a href="/applied_jobs">📄 Applied Jobs</a>
+            <a href="/upload_resume">📄 Upload Resume</a>
+            <a href="/logout">🚪 Logout</a>
+
+        </div>
+
+    </div>
+    <div class="card mt-4 shadow-sm">
+    <div class="card-body">
+        <h4>Recent Activity</h4>
+        <ul>
+            <li>✅ Welcome to Smart Job Portal</li>
+            <li>💼 Search and apply for jobs</li>
+            <li>❤️ Save jobs for later</li>
+            <li>📤 Upload your resume</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
