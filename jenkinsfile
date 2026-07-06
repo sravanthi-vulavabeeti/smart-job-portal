@@ -26,15 +26,15 @@ pipeline {
                 sh 'docker push sravs41/smart-job-portal:latest'
             }
         }
-    }
-    stage('Deploy Application') {
-    steps {
-        echo 'Deploying application...'
-        sh 'docker-compose down || true'
-        sh 'docker-compose pull'
-        sh 'docker-compose up -d'
-    }
-}
+    
+        stage('Deploy Application') {
+            steps {
+                echo 'Deploying application...'
+                sh 'docker-compose down || true'
+                sh 'docker-compose pull'
+                sh 'docker-compose up -d'
+            }
+        }
 
     post {
         success {
