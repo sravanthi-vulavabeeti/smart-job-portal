@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: smart_job_portal
+      MYSQL_USER: sravanthi
+      MYSQL_PASSWORD: 12345
+    ports:
+      - "3306:3306"
+
+  flask-app:
+    build: .
+    container_name: smart-job-app
+    depends_on:
+      - mysql
+    ports:
+      - "5000:5000"

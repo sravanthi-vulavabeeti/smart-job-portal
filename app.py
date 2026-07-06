@@ -4,12 +4,21 @@ import os
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
-db = mysql.connector.connect(
-    host="localhost",
-    user="sravanthi",
-    password="12345",
-    database="smart_job_portal"
-)
+import time
+
+while True:
+    try:
+        db = mysql.connector.connect(
+            host="mysql",
+            user="sravanthi",
+            password="12345",
+            database="smart_job_portal"
+        )
+        print("Connected to MySQL successfully!")
+        break
+    except:
+        print("Waiting for MySQL...")
+        time.sleep(5)
 
 cursor = db.cursor()
 print("connected to MYSQL successfully!")
@@ -330,7 +339,7 @@ def admin():
     )
             
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
 
 
