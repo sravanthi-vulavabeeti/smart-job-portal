@@ -27,6 +27,14 @@ pipeline {
             }
         }
     }
+    stage('Deploy Application') {
+    steps {
+        echo 'Deploying application...'
+        sh 'docker-compose down || true'
+        sh 'docker-compose pull'
+        sh 'docker-compose up -d'
+    }
+}
 
     post {
         success {
