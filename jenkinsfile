@@ -2,16 +2,70 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+
+        stage('Checkout Code') {
             steps {
-                echo 'Code checked out from GitHub'
+                echo 'Cloning source code from GitHub...'
+                checkout scm
             }
         }
 
         stage('Build Docker Image') {
             steps {
+                echo 'Building Docker image...'
                 sh 'docker build -t smart-job-portal .'
             }
         }
+
+        stage('List Docker Images') {
+            steps {
+                echo 'Listing Docker images...'
+                sh 'docker images'
+            }
+        }
+
+        stage('Stop Old Container') {
+            steps {
+                sh 'docker stop smart-job-portal || true'
+            }
+        }
+
+        stage('Remove Old Container') {
+            steps {
+                sh 'docker rm smart-job-portal || true'
+            }
+        }
+
+        stage('Run New Container') {
+            steps {
+                sh '''
+                docker run -d \
+                --name smart-job-portal \
+                -p 5000:5000 \
+                smart-job-portal
+                '''
+            }
+        }
+
+        stage('Verify Running Container') {
+            steps {
+                sh 'docker ps'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '🎉 Pipeline completed successfully!'
+        }
+
+        failure {
+            echo '❌ Pipeline failed.'
+        }
+
+        always {
+            echo 'Pipeline execution finished.'
+        }
     }
 }
+
